@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhonesController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('Test',[TestController::class ,'Test']);
 Route::get('Test', [TestController::class, 'Test']);
 
-Route::post('student','StudentController@create');
+Route::post('student',[StudentController::class,'create']);
+//Route::get('student','StudentController@create');
 
+Route::get('student',[StudentController::class,'create']);
 
+Route::post('phones',[PhonesController::class, 'create']);
+Route::get('phones',[PhonesController::class, 'create']);

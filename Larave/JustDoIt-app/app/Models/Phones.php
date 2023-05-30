@@ -6,10 +6,10 @@ use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Phones extends Model
 {
     use HasFactory,Uuids;
 
-    protected $table ='students';
-    protected $Fillable = ['Fname','Sname','Email'];
+    protected $table='phones';
+    protected $Fillable=['Name','Description','Employee'];
 }

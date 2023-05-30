@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Traits\Uuids;
+
 return new class extends Migration
 {
     /**
@@ -11,14 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('phones', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('Fname');
-            $table->string('Sname');
-            $table->string('Email');
+            $table->string('Name');
+            $table->string('Description');
+            $table->String('Employee');
             $table->timestamps();
-       });
-    
+        });
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('phones');
     }
 };
