@@ -50,7 +50,7 @@ Route::prefix('staff')->name('staff')->controller(StaffController::class)->group
 Route::prefix('department')->name('department')->controller(DepartmentController::class)->group(function(){
   Route::get('', 'index');
   Route::post('','store');
-  Route::post('{depsrtment}','update');
+  Route::post('{department}','update');
   Route::get('{department}','show');
   Route::delete('{department}','destroy');
 });

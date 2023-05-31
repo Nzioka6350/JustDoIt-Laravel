@@ -10,5 +10,9 @@ class Staff extends Model
 {
     use HasFactory,Uuids;
 
-    protected $fillable=['Id_No','Department'];
+    protected $fillable=['Id_No','department_id'];
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
 }

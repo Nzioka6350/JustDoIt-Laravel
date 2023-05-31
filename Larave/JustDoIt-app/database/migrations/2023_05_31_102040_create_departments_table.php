@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('Dept_Code');
+            $table->string('Dept_Code')->unique();
             $table->string('Dept_Name');
             $table->string('School');
             $table->integer('Courses');
