@@ -6,9 +6,8 @@ use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Department extends Model
 {
     use HasFactory,Uuids;
-
-    protected $fillable = ['Fname','Sname','Email'];
+    protected $fillable=['Dept_Code','Dept_Name','School','Courses'];
 }

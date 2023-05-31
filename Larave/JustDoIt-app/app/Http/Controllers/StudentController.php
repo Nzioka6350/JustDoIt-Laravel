@@ -15,23 +15,9 @@ class StudentController extends Controller
     public function index()
     {
         //
+        return Student::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(Request $request)
-    {
-        //
-        $students= new Student();
-
-        $students->Fname= $request->input('Fname');
-        $students->Sname= $request->input('Sname');
-        $students->Email= $request->input('Email');
-
-        $students->save();
-        return response()->json($students);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,6 +25,8 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request)
     {
         //
+       $student= Student::create($request->validated());
+        return response("$student->Fname has been created",status:200);
     }
 
     /**
@@ -47,14 +35,7 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Student $student)
-    {
-        //
+        return $student;
     }
 
     /**
@@ -63,6 +44,8 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         //
+        $student->update($request->validated());
+        return response("$student->Fname has been updated",status:200);
     }
 
     /**
@@ -71,5 +54,7 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         //
+        $student->delete();
+        return response("$student->Fname has been deleted",status:200);
     }
 }
