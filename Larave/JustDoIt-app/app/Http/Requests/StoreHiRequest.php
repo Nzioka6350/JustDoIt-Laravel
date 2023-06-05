@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateGradeRequest extends FormRequest
+class StoreHiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,9 @@ class UpdateGradeRequest extends FormRequest
     {
         return [
             //
-            'name'=>['string'],
-            'Population'=>['numeric']  
+            'greet'=>['required','string'],
+            'name'=>['required','string']
+
         ];
     }
 }

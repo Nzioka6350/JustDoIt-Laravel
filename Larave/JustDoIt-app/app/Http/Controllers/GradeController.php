@@ -14,14 +14,7 @@ class GradeController extends Controller
     public function index()
     {
         //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Grade::all();
     }
 
     /**
@@ -30,6 +23,8 @@ class GradeController extends Controller
     public function store(StoreGradeRequest $request)
     {
         //
+        $grade=Grade::create($request->validated());
+        return response("$grade->name is created", status:200);
     }
 
     /**
@@ -37,23 +32,16 @@ class GradeController extends Controller
      */
     public function show(Grade $grade)
     {
-        //
+        return $grade;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Grade $grade)
-    {
-        //
-    }
-
-    /**
+     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateGradeRequest $request, Grade $grade)
     {
-        //
+        $grade->update($request->validated());
+        return response("$grade->name has been updated",status:200);
     }
 
     /**
@@ -62,5 +50,7 @@ class GradeController extends Controller
     public function destroy(Grade $grade)
     {
         //
+        $grade->delete();
+        return response("$grade->name has been deleted",status:200);
     }
 }

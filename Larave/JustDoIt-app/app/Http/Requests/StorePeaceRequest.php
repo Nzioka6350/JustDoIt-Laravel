@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateGradeRequest extends FormRequest
+class StorePeaceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,8 +23,6 @@ class UpdateGradeRequest extends FormRequest
     {
         return [
             //
-            'name'=>['string'],
-            'Population'=>['numeric']  
         ];
     }
 }

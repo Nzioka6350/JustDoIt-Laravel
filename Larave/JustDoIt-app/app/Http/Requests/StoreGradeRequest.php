@@ -11,7 +11,7 @@ class StoreGradeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,8 @@ class StoreGradeRequest extends FormRequest
     {
         return [
             //
+            'name'=>['required','string'],
+            'Population'=>['required','numeric']  
         ];
     }
 }

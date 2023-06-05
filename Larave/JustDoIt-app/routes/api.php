@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DoneController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\HiController;
 use App\Http\Controllers\PhonesController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
@@ -53,4 +56,31 @@ Route::prefix('department')->name('department')->controller(DepartmentController
   Route::post('{department}','update');
   Route::get('{department}','show');
   Route::delete('{department}','destroy');
+});
+
+Route::prefix('grade')->name('grade')->controller(GradeController::class)->group(function ()
+{
+ Route::get('','index');
+ Route::post('','store');
+ Route::get('{grade}','show');
+ Route::post('{grade}','update');
+ Route::delete('{grade}','destroy');
+});
+
+Route::prefix('done')->name('done')->controller(DoneController::class)->group(function ()
+{
+  Route::get('','index');
+  Route::post('','store');
+  Route::get('{done}','show');
+  Route::post('{done}','update');
+  Route::delete('{done}','destroy');
+});
+
+Route::prefix('hi')->name('hi')->controller(HiController::class)->group(function ()
+{
+  Route::get('','index');
+  Route::post('','store');
+  Route::post('{hi}','update');
+  Route::get('{hi}','show');
+  Route::delete('{hi}','destroy');
 });
